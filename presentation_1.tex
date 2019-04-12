@@ -1,0 +1,290 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Community Detection]{Madrid Train Bombing Network Analytics} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+%\author[Adorni, Matamoros]{Giorgia Adorni \and Ricardo Matamoros}
+
+\author[Adorni, Matamoros]{Giorgia Adorni \and Ricardo Matamoros}
+\institute[]{\textit{g.adorni@campus.unimib.it \\ r.matamorosaragon@campus.unimib.it} \\
+\bigskip Università degli Studi di Milano-Bicocca }
+
+\date{Data Analytics 2018-2019}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview}
+\tableofcontents
+\end{frame}
+
+%------------------------------------------------
+%	PRESENTATION SLIDES
+%------------------------------------------------
+
+\section{Descrizione della rete}
+
+\begin{frame}
+\frametitle{Descrizione della rete}
+Jose A. Rodriguez, dell'Università di Barcellona, ha creato una rete di persone coinvolte nell'attentato ai treni pendolari a Madrid l'11 marzo 2004. Rodriguez ha utilizzato la stampa dei due maggiori quotidiani spagnoli (El Pais e El Mundo) per ricostruire la rete terroristica. I nomi inclusi erano di quelle persone sospettate di aver partecipato e dei loro parenti. Rodriguez ha specificato 4 tipi di legami che collegano le persone coinvolte:
+
+\begin{itemize}
+    \item Fiducia-amicizia (contatto, parentela, collegamenti nel centro telefonico).
+    \item Legami con Al Qaeda e con Osama Bin Laden.
+    \item Co-partecipazione in campi di addestramento o guerre.
+    \item Co-partecipazione a precedenti attacchi terroristici (11 settembre, Casablanca).
+\end{itemize}
+
+Questi quattro sono stati aggiunti insieme fornendo una forza di indice di connessione che va da 1 a 4.
+\end{frame}
+
+%------------------------------------------------
+\section{Analisi macroscopica}
+
+\begin{frame}
+\frametitle{Analisi macroscopica}
+\begin{columns}
+          \column{0.38\linewidth}
+             \centering
+             \includegraphics[height=5cm, width=5cm]{images/weight_d.png}
+           \column{0.58\linewidth}
+              \textbf{Most dangerous concept}\\ \begin{itemize}
+                  \item Degree centrality
+                  \item Betweenness centrality
+                  \item Closeness centrality
+                  \item Page Rank centrality
+                  \item Eigenvector centrality
+              \end{itemize}
+              
+             Tutte le misure considerate tengono conto dei pesi degli archi.
+         \end{columns} 
+
+\end{frame}
+
+%------------------------------------------------
+
+\section{Analisi delle misure di centralità}
+
+\begin{frame}
+\frametitle{Analisi delle misure di centralità}
+\framesubtitle{Degree Centrality}
+\begin{columns}
+          \column{0.38\linewidth}
+             \centering
+             \includegraphics[height=5cm, width=5cm]{misure_grafo/degree_all.png}
+           \column{0.58\linewidth}
+              Questa misura di centralità indica il numero di persone che possono essere raggiunte direttamente da questa persona o può essere interpretata come un indicatore del numero di persone con le quali questa persona si relaziona in modo diretto. 
+         \end{columns} 
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Analisi delle misure di centralità}
+\framesubtitle{Betweenness Centrality}
+\begin{columns}
+          \column{0.38\linewidth}
+             \centering
+             \includegraphics[height=5cm, width=5cm]{misure_grafo/betwe_all.png}
+           \column{0.58\linewidth}
+              Questa misura indica l'importanza di una persona rispetto alle volte nelle quali viene utilizzata come ponte da altre coppie di nodi, quindi maggiore sarà il valore associato e maggiore sarà la quantità di informazione a disposizione. 
+         \end{columns} 
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Analisi delle misure di centralità}
+\framesubtitle{Closeness Centrality}
+\begin{columns}
+          \column{0.38\linewidth}
+             \centering
+             \includegraphics[height=5cm, width=5cm]{misure_grafo/closeness_all.png}
+           \column{0.58\linewidth}
+             Questa misura indica la velocità con la quale una persona riesce a trasmettere certa informazione o interagire con altri nella rete data la sua posizione rispetto alla centralità della rete. 
+         \end{columns} 
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Analisi delle misure di centralità}
+\framesubtitle{Pagerank Centrality}
+\begin{columns}
+          \column{0.38\linewidth}
+             \centering
+             \includegraphics[height=5cm, width=5cm]{misure_grafo/pr_all.png}
+           \column{0.58\linewidth}
+        
+         \end{columns} 
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Analisi delle misure di centralità}
+\framesubtitle{Eigenvector Centrality}
+\begin{columns}
+          \column{0.38\linewidth}
+             \centering
+             \includegraphics[height=5cm, width=5cm]{misure_grafo/eigen_All.png}
+           \column{0.58\linewidth}
+              
+         \end{columns} 
+
+\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Analisi delle misure di centralità}
+%\framesubtitle{Confronto delle varie misure di centralità}
+
+
+%\end{frame}
+%------------------------------------------
+
+\begin{frame}
+\frametitle{Most Dangerous Persons}
+\framesubtitle{Confronto delle varie misure di centralità}
+\frametitle{Table}
+\begin{table}
+\begin{tabular}{l l l 1 1}
+\toprule
+                                                                                                    
+\textbf{Degree}& \textbf{Betweenness} & \textbf{Closeness} & \textbf{Pagerank}& \textbf{Eigenvector}\\
+\midrule
+1 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Table caption}
+\end{table}
+
+\end{frame}
+%------------------------------------------------
+
+\section{Community Detection}
+
+\begin{frame}
+\frametitle{Community Detection}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Community Detection}
+\framesubtitle{Community Edge Betweenness}
+
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Community Detection}
+\framesubtitle{Confronto delle comunity attraverso le misure di centralità}
+
+\end{frame}
+
+%------------------------------------------------
+
+
+
+\begin{frame}
+\Huge{\centerline{Grazie per l'attenzione}}
+\end{frame}
+
+\end{document}
